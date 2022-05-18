@@ -1,10 +1,8 @@
-const { Router } = require('express')
+const { Router } = require('express');
+const FilaController = require('../controllers/filaController');
 
 const router = Router();
 
-
-module.exports = router =>{
   router
-  .get('/fila')
-
-  }
+  .get('/filas',FilaController.getQueue)
+  module.exports = router
