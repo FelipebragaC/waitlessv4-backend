@@ -1,10 +1,9 @@
-const { default: knex } = require('knex');
-const db = require ('../config/db.js');
+const connection = require ('../config/db.js');
 
 
 class FilaController {
   static async getQueue(req,res){
-   const queues = knex('CFILA').select('nome')
+   const queues = await connection('CFILA').select('nome')
    return res.status(200).json(queues)
   }
 

@@ -3,17 +3,17 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-require('dotenv').config({path:'/src/env/db.env'})
+require('dotenv').config({path:('src/env/db.env')})
 module.exports = {
 
   development: {
-    client: 'postgres',
+    client: 'postgresql',
     connection: {
       database:process.env.DATABASE,
       user:process.env.USER,
       host:process.env.HOST,
       port:process.env.PORT,
-      password:process.env.PASSWORD,
+      password:process.env.PASSWORD
     }
   },
 
