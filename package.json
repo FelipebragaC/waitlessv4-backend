@@ -4,7 +4,7 @@
   "description": "Nova versão waitless",
   "main": "src/main/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
