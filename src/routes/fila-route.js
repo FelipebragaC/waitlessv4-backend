@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const FilaController = require('../controllers/filaController');
+const filaValidator = require('../helpers/validations/validationSchemas.js')
 
 const router = Router();
 

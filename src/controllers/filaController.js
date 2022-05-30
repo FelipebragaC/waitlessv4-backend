@@ -1,7 +1,7 @@
 const connection = require('../config/db.js');
 const { FilaRepository } = require('../repositories');
 const serviceFila = require('../services/serviceFila.js');
-const filaRepository = new FilaRepository()
+const filaRepository = new FilaRepository();
 
 class FilaController {
   static async getQueue(req, res) {
@@ -48,8 +48,8 @@ class FilaController {
   static async updateQueue(req, res) {
     const { id } = req.params
     const updatedInfos = req.body
-
     try {
+
      const updated = await serviceFila.updateQueueService(updatedInfos, id)
       return res.status(200).json(updated);
     } catch (error) {

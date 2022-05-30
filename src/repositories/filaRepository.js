@@ -8,7 +8,10 @@ class FilaRepository extends Repository{
 async getQueueByName(name){
  return await connection(this.tableName).select('*').where({nome:name})
 }
+
+
 }
+
 
 
 module.exports = FilaRepository
