@@ -1,4 +1,3 @@
-const connection = require('../config/db.js');
 const { FilaRepository } = require('../repositories');
 const serviceFila = require('../services/serviceFila.js');
 const filaRepository = new FilaRepository();
