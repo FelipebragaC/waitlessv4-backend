@@ -1,10 +1,5 @@
-const app = require ('./config/app.js');
-const routes = require ('./routes')
+const app = require('./config/app.js')
+const routes = require('./routes')
 
 routes(app)
-app.listen(3000, ()=>console.log('server running http://localhost:3000'))
-
-
-
-
-
+app.listen(3000, () => console.log('server running http://localhost:3000'))
