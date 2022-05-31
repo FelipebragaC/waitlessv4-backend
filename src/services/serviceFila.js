@@ -1,30 +1,27 @@
 const { FilaRepository } = require('../repositories')
 const { ClienteRepository } = require('../repositories')
-const filaValidator = require('../helpers/validations/validationSchemas.js');
-const filaRepository = new FilaRepository();
-const clienteRepository = new ClienteRepository();
+const filaValidator = require('../helpers/validations/validationSchemas.js')
+const filaRepository = new FilaRepository()
+const clienteRepository = new ClienteRepository()
 
 module.exports = {
 
-  async updateQueueService(infos, id) {
-
+  async updateQueueService (infos, id) {
     const result = await filaValidator.validateAsync(infos)
     if (result.error) { return result.error.message }
 
+    if (infos.estabelecimento) {
+      const idEstabelecimento = infos.estabelecimento
+      const compare = await clienteRepository.findById(idEstabelecimento)
 
-      if (infos.estabelecimento) {
-        const idEstabelecimento = infos.estabelecimento
-        const compare = await clienteRepository.findById(idEstabelecimento)
-
-        if (compare.length < 1) {
-          throw new Error('Estabelecimento não existe')
-        }
+      if (compare.length < 1) {
+        throw new Error('Estabelecimento não existe')
       }
-      return await filaRepository.update(infos, id);
-
+    }
+    return await filaRepository.update(infos, id)
   },
 
-  async insertQueueService(infos) {
+  async insertQueueService (infos) {
     const idEstabelecimento = infos.estabelecimento
     const compare = await clienteRepository.findById(idEstabelecimento)
 
@@ -34,4 +31,3 @@ module.exports = {
     return await filaRepository.insert(infos)
   }
 }
-

@@ -1,18 +1,9 @@
-const connection = require('../config/db.js');
-const Repository = require('./repository.js');
+const Repository = require('./repository.js')
 
 class ClienteRepository extends Repository {
-constructor(){
-  super('CCLIENTE')
+  constructor () {
+    super('CCLIENTE')
+  }
 }
-
-
-
-
-
-
-
-}
-
 
 module.exports = ClienteRepository
