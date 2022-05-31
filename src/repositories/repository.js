@@ -15,29 +15,35 @@ class Repository {
   }
 
   async delete(id) {
-    await connection.transaction(async deletes => {
-    return await connection(this.tableName).delete().where({ id })
-    })
+    const trx =await connection.transaction()
+    try{
+      return await connection(this.tableName).transacting(trx).delete().where({ id })
+    }catch(error){trx.rollback()}
   }
 
   async insert(newInfo) {
-    await connection.transaction(async insert => {
-    const [id] = await connection(this.tableName).insert({
-      ...newInfo,
-      createdAt: connection.fn.now(),
-      updatedAt: connection.fn.now()
-    })
-      .returning('id');
-    return id})
-  }
+    const trx = connection.transaction()
+    try{
+      const [id] = await connection(this.tableName).transacting(trx).insert({
+        ...newInfo,
+        createdAt: connection.fn.now(),
+        updatedAt: connection.fn.now()
+      })
+        .returning('id');
+      await trx.commit()
+      return id
+    }catch(error){trx.rollback()}
+    }
+
 
   async update(updatedInfo, id) {
-    await connection.transaction(async update => {
-    return connection(this.tableName).update(updatedInfo).update('updatedAt', connection.fn.now()).where({ id }).returning('*')
-    });
+    const trx = await connection.transaction()
+    try {
+      const result = await connection(this.tableName).transacting(trx).update(updatedInfo).update('updatedAt', connection.fn.now()).where({ id }).returning('*')
+      await trx.commit()
+      return result
+    } catch (error) { trx.rollback() }
   }
-
 }
-
 
 module.exports = Repository
