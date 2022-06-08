@@ -5,6 +5,7 @@ const senha = require('./senha-route')
 
 module.exports = app => {
   app.use(
+
     bodyParser.json(),
     fila,
     cliente,
