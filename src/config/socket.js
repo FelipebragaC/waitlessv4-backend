@@ -9,6 +9,10 @@ const io = require('socket.io')(http, {
 io.on('connection', (socket) => {
   console.log('online', socket.id)
   // socket.broadcast.emit
+  socket.on('msg', (msg) => {
+    socket.broadcast.emit('msg', 'broadcast working' + socket.id)
+  }
+  )
 })
 
 module.exports = http
