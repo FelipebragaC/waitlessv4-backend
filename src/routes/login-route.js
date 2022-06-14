@@ -4,5 +4,9 @@ const router = Router()
 
 router
   .get('/login', LoginController.getUsers)
+  .get('/login/:id', LoginController.getSingleUser)
+  .get('/login/nome/:emailAddress', LoginController.getUserName)
+  .post('/login', LoginController.insertUser)
+  .post('/login/signin', LoginController.signIn)
 
 module.exports = router

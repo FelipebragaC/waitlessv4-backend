@@ -1,9 +1,21 @@
-const Repository = require('./repository')
+const Repository = require('./repository.js')
+const connection = require('../config/db.js')
 
 class LoginRepository extends Repository {
   constructor () {
     super('CUSUARIO')
   }
-// nao permitir emails repetidos
+
+  async findUser (infos) {
+    try {
+      const user = await connection(this.tableName).select('emailAddress', 'password').where({ emailAddress: infos })
+
+      return user[0]
+    } catch (error) {
+      return error.message
+    }
+  }
+
+  // nao permitir emails repetidos
 }
 module.exports = LoginRepository
