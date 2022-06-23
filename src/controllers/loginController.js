@@ -1,6 +1,8 @@
 const { LoginRepository } = require('../repositories')
 const loginRepository = new LoginRepository()
 const serviceLogin = require('../services/serviceLogin.js')
+const jwt = require('jsonwebtoken')
+require('dotenv').config({ path: ('src/env/token.env') })
 
 class LoginController {
   static async getUsers (req, res) {
@@ -26,6 +28,19 @@ class LoginController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
+  }
+
+  static async authUser (req, res, next) {
+    const authHeader = req.headers.authorization
+    const token = await authHeader && authHeader.split(' ')[1]
+    console.log(token)
+
+    if (token === null) { res.status(401) }
+    try {
+      const result = await jwt.verify(token, process.env.JWT_TOKEN)
+      req.result = result
+    } catch (error) { return res.status(401).json(error.message) }
+    next()
   }
 
   static async signIn (req, res) {

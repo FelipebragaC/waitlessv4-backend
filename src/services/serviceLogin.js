@@ -2,6 +2,7 @@ const { LoginRepository } = require('../repositories')
 const loginRepository = new LoginRepository()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+require('dotenv').config({ path: ('src/env/token.env') })
 
 module.exports = {
   async insertUser (infos) {
@@ -33,7 +34,7 @@ module.exports = {
         throw new Error('Senha inválida')
       }
       const token = jwt.sign({ email, pass },
-        'eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY1NTI0MDI0NSwiaWF0IjoxNjU1MjQwMjQ1fQ.8eAMPUfIJ2HCwzRcktVyEFj1l1CZy-ljoSFAl-R9M68'
+        process.env.JWT_TOKEN
         , { expiresIn: '1h' })
 
       return token
