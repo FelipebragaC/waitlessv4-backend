@@ -16,6 +16,10 @@ class LoginRepository extends Repository {
     }
   }
 
+  async findByEmail (email) {
+    return await connection('CUSUARIO').select('*').where({ emailAddress: email })
+  }
+
   // nao permitir emails repetidos
 }
 module.exports = LoginRepository

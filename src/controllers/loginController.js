@@ -11,6 +11,16 @@ class LoginController {
     } catch (err) { res.status(500).json(err.message) }
   }
 
+  static async getByEmail (req, res) {
+    const email = req.body.emailAddress
+    try {
+      const userEmail = await loginRepository.findByEmail(email)
+      return res.status(200).json(userEmail)
+    } catch (error) {
+      res.status(500).json(error.message)
+    }
+  }
+
   static async insertUser (req, res) {
     const infos = req.body
     try {
