@@ -22,7 +22,7 @@ class Repository {
   }
 
   async insert (newInfo) {
-    const trx = connection.transaction()
+    const trx = await connection.transaction()
     try {
       const [id] = await connection(this.tableName).transacting(trx).insert({
         ...newInfo,
@@ -32,7 +32,10 @@ class Repository {
         .returning('id')
       await trx.commit()
       return id
-    } catch (error) { trx.rollback() }
+    } catch (error) {
+      console.error(error.code, error.detail)
+      trx.rollback()
+    }
   }
 
   async update (updatedInfo, id) {
