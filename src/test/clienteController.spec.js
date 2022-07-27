@@ -1,4 +1,3 @@
-
 const mockRequest = (sessionData, bodyData) => ({
   session: { data: sessionData },
   body: bodyData
@@ -20,6 +19,7 @@ describe('Client Controller', () => {
     .spyOn(ClienteController, 'getClients')
     .mockImplementation(() => res)
   })
+
 
   test('should return 200', async () => {
     const req = mockRequest({});
