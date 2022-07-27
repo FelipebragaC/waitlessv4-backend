@@ -31,7 +31,6 @@
     "socket.io": "4.5.1"
   },
   "devDependencies": {
-    "@jest-mock/express": "^2.0.1",
     "eslint": "^8.16.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
