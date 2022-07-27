@@ -11,7 +11,6 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-
-
-  }
+  },
+  plugins: ['jest']
 }
