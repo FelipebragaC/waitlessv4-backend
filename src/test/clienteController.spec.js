@@ -6,18 +6,26 @@ const mockRequest = (sessionData, bodyData) => ({
 
 const mockResponse = () => {
   const res = {};
-  res.status = jest.fn().mockReturnValue(res);
+  res.status = 200
   res.json = jest.fn().mockReturnValue(res);
   return res;
 };
+
 const ClienteController = require('../controllers/clienteController')
 describe('Client Controller', () => {
+  const res = mockResponse();
+
+  beforeAll(()=> {
+    jest
+    .spyOn(ClienteController, 'getClients')
+    .mockImplementation(() => res)
+  })
 
   test('should return 200', async () => {
     const req = mockRequest({});
-    const res = mockResponse();
-    await ClienteController.getClients(req, res)
 
-    expect(res.status).toHaveBeenCalledWith(200)
+    const rusult =  await ClienteController.getClients(req,res)
+
+    expect(rusult.status).toEqual(200)
   })
 })
