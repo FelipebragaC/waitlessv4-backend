@@ -57,14 +57,14 @@ describe('Client Controller', () => {
 
     const result =  await ClienteController.deleteClient(req,res)
     await expect(result.status).toEqual(200)
-    await expect(error).toEqual(error.message)
+
   })
 
   test('insertClient should return 200', async () => {
 
     const result =  await ClienteController.insertClient(req,res)
     await expect(result.status).toEqual(200)
-    await expect(error).toEqual(error.message)
+
   })
 
 
