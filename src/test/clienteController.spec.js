@@ -11,21 +11,64 @@ const mockResponse = () => {
 };
 
 const ClienteController = require('../controllers/clienteController')
+
+
 describe('Client Controller', () => {
   const res = mockResponse();
+  const req = mockRequest({});
 
   beforeAll(()=> {
     jest
     .spyOn(ClienteController, 'getClients')
     .mockImplementation(() => res)
   })
-
-
-  test('should return 200', async () => {
-    const req = mockRequest({});
-
-    const rusult =  await ClienteController.getClients(req,res)
-
-    expect(rusult.status).toEqual(200)
+  beforeAll(()=> {
+    jest
+    .spyOn(ClienteController, 'updateClient')
+    .mockImplementation(() => res)
   })
+  beforeAll(()=> {
+    jest
+    .spyOn(ClienteController, 'deleteClient')
+    .mockImplementation(() => res)
+  })
+  beforeAll(()=> {
+    jest
+    .spyOn(ClienteController, 'insertClient')
+    .mockImplementation(() => res)
+  })
+
+
+
+
+  test('getClients should return 200', async () => {
+
+    const result =  await ClienteController.getClients(req,res)
+    await expect(result.status).toEqual(200)
+  })
+
+  test('updateClient should return 200', async () => {
+
+    const result =  await ClienteController.updateClient(req,res)
+    await expect(result.status).toEqual(200)
+  })
+
+  test('deleteClient should return 200', async () => {
+
+    const result =  await ClienteController.deleteClient(req,res)
+    await expect(result.status).toEqual(200)
+    await expect(error).toEqual(error.message)
+  })
+
+  test('insertClient should return 200', async () => {
+
+    const result =  await ClienteController.insertClient(req,res)
+    await expect(result.status).toEqual(200)
+    await expect(error).toEqual(error.message)
+  })
+
+
+
+
 })
+
