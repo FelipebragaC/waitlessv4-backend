@@ -5,9 +5,9 @@ class ClienteController {
   static async getClients (req, res) {
     try {
       const showClients = await clienteRepository.findAll()
-      res.status(200).json(showClients)
+     return  res.status(200).json(showClients)
     } catch (error) {
-      res.status(500).json(error.message)
+     return  res.status(500).json(error.message)
     }
   }
 

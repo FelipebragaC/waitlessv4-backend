@@ -38,26 +38,19 @@ describe('Client Controller', () => {
     .mockImplementation(() => res)
   })
 
-
-
-
   test('getClients should return 200', async () => {
-
     const result =  await ClienteController.getClients(req,res)
     await expect(result.status).toEqual(200)
   })
 
   test('updateClient should return 200', async () => {
-
     const result =  await ClienteController.updateClient(req,res)
     await expect(result.status).toEqual(200)
   })
 
   test('deleteClient should return 200', async () => {
-
     const result =  await ClienteController.deleteClient(req,res)
     await expect(result.status).toEqual(200)
-
   })
 
   test('insertClient should return 200', async () => {
