@@ -14,16 +14,23 @@ module.exports = {
   // cacheDirectory: "C:\\Users\\felip\\AppData\\Local\\Temp\\jest",
 
   // Automatically clear mock calls, instances, contexts and results before every test
-  clearMocks: true,
+
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
+<<<<<<< HEAD
   collectCoverageFrom: ['**/src/**/*.js'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage'
+=======
+  // collectCoverageFrom: undefined,
+
+  // The directory where Jest should output its coverage files
+  coverageDirectory: "coverage",
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -31,7 +38,11 @@ module.exports = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
+<<<<<<< HEAD
   // coverageProvider: 'v8'
+=======
+  coverageProvider: "v8",
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -192,4 +203,4 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { loginRepository } = require('../repositories/index')
+=======
+const { loginRepository } = require('../repositories')
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
 
 const serviceLogin = require('../services/serviceLogin.js')
 require('dotenv').config({ path: ('src/env/token.env') })

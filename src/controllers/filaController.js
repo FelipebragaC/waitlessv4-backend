@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 const { filaRepository } = require('../repositories/index')
 const serviceFila = require('../services/serviceFila.js')
+=======
+const { filaRepository } = require('../repositories')
+const serviceFila = require('../services/serviceFila.js')
+
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
 
 const filaController = {
   async getQueue (req, res) {

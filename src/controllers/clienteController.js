@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 const { clienteRepository } = require('../repositories')
 
 const clienteController = {
+=======
+const {clienteRepository} = require('../repositories')
+
+module.exports = {
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
   async getClients (req, res) {
     try {
       const showClients = await clienteRepository.findAll()
@@ -33,6 +39,7 @@ const clienteController = {
 
   async insertClient (req, res) {
     const clientInfos = req.body
+
     try {
       const newClient = await clienteRepository.insert(clientInfos)
       res.status(200).json(newClient)
@@ -42,4 +49,7 @@ const clienteController = {
   }
 }
 
+<<<<<<< HEAD
 module.exports = clienteController
+=======
+>>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
