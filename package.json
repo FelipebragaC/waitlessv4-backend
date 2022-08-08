@@ -35,11 +35,7 @@
     "eslint-plugin-jest": "^26.7.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
-<<<<<<< HEAD
-    "jest": "^28.1.3",
-=======
     "jest": "28.1.3",
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
     "mocha": "10.0.0",
     "nodemon": "^2.0.19",
     "standard": "^17.0.0"
