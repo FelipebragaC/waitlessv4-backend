@@ -1,25 +1,18 @@
-const Repository = require('./repository.js')
-const connection = require('../config/db.js')
+const { connection } = require('../config/db')
+const TABLENAME = 'CUSUARIO'
 
-class LoginRepository extends Repository {
-  constructor () {
-    super('CUSUARIO')
-  }
+const loginRepository = {
 
   async findUser (infos) {
-    try {
-      const user = await connection(this.tableName).select('emailAddress', 'password').where({ emailAddress: infos })
-
-      return user[0]
-    } catch (error) {
-      return error.message
-    }
-  }
+    const user = await connection(TABLENAME).select('emailAddress', 'password').where({ emailAddress: infos })
+    return user[0]
+  },
 
   async findByEmail (email) {
-    return await connection('CUSUARIO').select('*').where({ emailAddress: email })
+    return await connection(TABLENAME).select('*').where({ emailAddress: email })
   }
 
   // nao permitir emails repetidos
 }
-module.exports = LoginRepository
+
+module.exports = { loginRepository }

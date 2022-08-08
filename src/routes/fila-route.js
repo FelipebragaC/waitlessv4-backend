@@ -1,13 +1,13 @@
 const { Router } = require('express')
-const FilaController = require('../controllers/filaController')
+const filaController = require('../controllers/filaController')
 
 const router = Router()
 
 router
-  .get('/filas', FilaController.getQueue)
-  .get('/filas/:id', FilaController.getSingleQueue)
-  .get('/filas/nome/:nome', FilaController.getQueueName)
-  .delete('/filas/:id', FilaController.deleteQueue)
-  .put('/filas/:id', FilaController.updateQueue)
-  .post('/filas', FilaController.insertQueue)
+  .get('/filas', filaController.getQueue)
+  .get('/filas/:id', filaController.getSingleQueue)
+  .get('/filas/nome/:nome', filaController.getQueueName)
+  .delete('/filas/:id', filaController.deleteQueue)
+  .put('/filas/:id', filaController.updateQueue)
+  .post('/filas', filaController.insertQueue)
 module.exports = router

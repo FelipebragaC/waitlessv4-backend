@@ -1,8 +1,6 @@
-const { FilaRepository } = require('../repositories')
-const { ClienteRepository } = require('../repositories')
+const { filaRepository, clienteRepository } = require('../repositories')
+
 const filaValidator = require('../helpers/validations/validationSchemas.js')
-const filaRepository = new FilaRepository()
-const clienteRepository = new ClienteRepository()
 
 module.exports = {
 

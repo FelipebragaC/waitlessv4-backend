@@ -1,5 +1,5 @@
-const { LoginRepository } = require('../repositories')
-const loginRepository = new LoginRepository()
+const { loginRepository } = require('../repositories')
+
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 require('dotenv').config({ path: ('src/env/token.env') })
