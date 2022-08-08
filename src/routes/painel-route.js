@@ -9,5 +9,4 @@ router
   .put('/painel/:id', painelController.updatePainel)
   .delete('/painel/:id', painelController.deletePainel)
 
-
 module.exports = router
