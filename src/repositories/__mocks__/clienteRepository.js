@@ -1,10 +1,7 @@
-const connection = require('../config/db.js')
-const tableName = 'CCLIENTE'
-
 module.exports = {
 
 async findAll (where = {}) {
-  return await connection(tableName).select('*').where({ ...where })
+  return {id:1,nome:'xablau',estabelecimento:3}
 },
 
 async findById (id) {

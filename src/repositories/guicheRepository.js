@@ -1,5 +1,5 @@
 const connection = require('../config/db.js')
-const tableName = 'CCLIENTE'
+const tableName = 'CGUICHE'
 
 module.exports = {
 
@@ -48,4 +48,3 @@ async update (updatedInfo, id) {
   } catch (error) { trx.rollback() }
 }
 }
-

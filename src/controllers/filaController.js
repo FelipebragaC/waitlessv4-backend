@@ -1,6 +1,6 @@
-const { FilaRepository } = require('../repositories')
+const { filaRepository } = require('../repositories')
 const serviceFila = require('../services/serviceFila.js')
-const filaRepository = new FilaRepository()
+
 
 class FilaController {
   static async getQueue (req, res) {

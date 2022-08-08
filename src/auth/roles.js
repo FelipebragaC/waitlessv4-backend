@@ -1,5 +1,4 @@
-const { LoginRepository } = require('../repositories')
-const loginRepository = new LoginRepository()
+const { loginRepository } = require('../repositories')
 const jwt = require('jsonwebtoken')
 
 module.exports =

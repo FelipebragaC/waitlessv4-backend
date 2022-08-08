@@ -1,5 +1,5 @@
 const connection = require('../config/db.js')
-const tableName = 'CCLIENTE'
+const tableName = 'CPAINEL'
 
 module.exports = {
 

@@ -1,5 +1,5 @@
-const { LoginRepository } = require('../repositories')
-const loginRepository = new LoginRepository()
+const { loginRepository } = require('../repositories')
+
 const serviceLogin = require('../services/serviceLogin.js')
 require('dotenv').config({ path: ('src/env/token.env') })
 

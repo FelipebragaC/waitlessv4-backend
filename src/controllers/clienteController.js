@@ -1,17 +1,16 @@
-const { ClienteRepository } = require('../repositories')
-const clienteRepository = new ClienteRepository()
+const {clienteRepository} = require('../repositories')
 
-class ClienteController {
-  static async getClients (req, res) {
+module.exports = {
+  async getClients (req, res) {
     try {
       const showClients = await clienteRepository.findAll()
      return  res.status(200).json(showClients)
     } catch (error) {
      return  res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async updateClient (req, res) {
+  async updateClient (req, res) {
     const { id } = req.params
     const newInfo = req.body
     try {
@@ -20,9 +19,9 @@ class ClienteController {
     } catch (error) {
       res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async deleteClient (req, res) {
+  async deleteClient (req, res) {
     const { id } = req.params
     try {
       const deletedClient = await clienteRepository.delete(id)
@@ -30,10 +29,11 @@ class ClienteController {
     } catch (error) {
       res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async insertClient (req, res) {
+  async insertClient (req, res) {
     const clientInfos = req.body
+
     try {
       const newClient = await clienteRepository.insert(clientInfos)
       res.status(200).json(newClient)
@@ -43,4 +43,3 @@ class ClienteController {
   }
 }
 
-module.exports = ClienteController
