@@ -11,4 +11,17 @@ const filaValidator = Joi.object().keys({
   estabelecimento: Joi.number()
 })
 
-module.exports = filaValidator
+const clienteValidator = Joi.object().keys({
+  nome: Joi.string().required().messages({
+    'string.base': '"nome" should be a type of \'text\'',
+    'string.empty': '"nome" cannot be an empty field'
+  }),
+  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+  cpf: Joi.number(),
+  cnpj: Joi.number(),
+  telefone: Joi.number(),
+  whatsapp: Joi.number(),
+  responsavel: Joi.string()
+})
+
+module.exports = { filaValidator, clienteValidator }

@@ -10,5 +10,4 @@ router
   .put('/guiche/:id', GuicheController.updateGuiche)
   .delete('/guiche/:id', GuicheController.deleteGuiche)
 
-
 module.exports = router
