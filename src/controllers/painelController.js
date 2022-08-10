@@ -1,12 +1,12 @@
-const {painelRepository} = require('../repositories')
+const { painelRepository } = require('../repositories')
 
 module.exports = {
   async getPainel (req, res) {
     try {
       const showPainel = await painelRepository.findAll()
-     return  res.status(200).json(showClients)
+      return res.status(200).json(showPainel)
     } catch (error) {
-     return  res.status(500).json(error.message)
+      return res.status(500).json(error.message)
     }
   },
 
@@ -42,4 +42,3 @@ module.exports = {
     }
   }
 }
-

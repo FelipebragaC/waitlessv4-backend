@@ -1,14 +1,6 @@
-<<<<<<< HEAD
+
 const { filaRepository, clienteRepository } = require('../repositories')
-
 const filaValidator = require('../helpers/validations/validationSchemas.js')
-=======
-const { filaRepository } = require('../repositories')
-const  clienteRepository  = require('../repositories')
-const filaValidator = require('../helpers/validations/validationSchemas.js')
-
-
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
 
 module.exports = {
 

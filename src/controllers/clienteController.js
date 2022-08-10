@@ -1,12 +1,8 @@
-<<<<<<< HEAD
+
 const { clienteRepository } = require('../repositories')
 
-const clienteController = {
-=======
-const {clienteRepository} = require('../repositories')
-
 module.exports = {
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
+
   async getClients (req, res) {
     try {
       const showClients = await clienteRepository.findAll()
@@ -48,8 +44,3 @@ module.exports = {
     }
   }
 }
-
-<<<<<<< HEAD
-module.exports = clienteController
-=======
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de

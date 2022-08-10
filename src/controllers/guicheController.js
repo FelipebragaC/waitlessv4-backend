@@ -1,12 +1,12 @@
-const {guicheRepository} = require('../repositories')
+const { guicheRepository } = require('../repositories')
 
 module.exports = {
   async getGuiches (req, res) {
     try {
       const showGuiches = await guicheRepository.findAll()
-     return  res.status(200).json(showGuiches)
+      return res.status(200).json(showGuiches)
     } catch (error) {
-     return  res.status(500).json(error.message)
+      return res.status(500).json(error.message)
     }
   },
 
@@ -40,14 +40,14 @@ module.exports = {
       res.status(500).json(error.message)
     }
   },
-    async findGuiche (req,res){
-      const {id} = req.params
-      try{
-        const guiche = await guicheRepository.findById(id)
-        res.status(200).json(guiche)
-      }catch(error){
-        res.status(500).json(error.message)}
+  async findGuiche (req, res) {
+    const { id } = req.params
+    try {
+      const guiche = await guicheRepository.findById(id)
+      res.status(200).json(guiche)
+    } catch (error) {
+      res.status(500).json(error.message)
     }
+  }
 
 }
-

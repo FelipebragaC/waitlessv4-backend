@@ -1,6 +1,6 @@
 
 const { connection } = require('../config/db')
-const { loginRepository } = require('./loginRepository')
+const loginRepository = require('./loginRepository')
 
 jest.mock('../config/db')
 describe('loginRepository', () => {

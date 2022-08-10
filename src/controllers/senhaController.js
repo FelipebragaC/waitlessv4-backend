@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 const { senhaRepository } = require('../repositories/index')
-
-const senhaController = {
-  async getSenha (req, res) {
-=======
-const { senhaRepository } = require('../repositories')
-
 
 module.exports = {
 
-   async getSenha (req, res) {
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
+  async getSenha (req, res) {
     try {
       const senhas = await senhaRepository.findAll()
       return res.status(200).json(senhas)
@@ -50,8 +42,3 @@ module.exports = {
     }
   }
 }
-
-<<<<<<< HEAD
-module.exports = senhaController
-=======
->>>>>>> 2267a590fba64c0667f9ebb9af3cc5e73bbe34de
