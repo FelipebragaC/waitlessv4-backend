@@ -1,18 +1,18 @@
-const { FilaRepository } = require('../repositories')
-const serviceFila = require('../services/serviceFila.js')
-const filaRepository = new FilaRepository()
 
-class FilaController {
-  static async getQueue (req, res) {
+const { filaRepository } = require('../repositories/index')
+const serviceFila = require('../services/serviceFila.js')
+
+module.exports = {
+  async getQueue (req, res) {
     try {
       const queues = await filaRepository.findAll()
       return res.status(200).json(queues)
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async getSingleQueue (req, res) {
+  async getSingleQueue (req, res) {
     const { id } = req.params
     try {
       const singleQueue = await filaRepository.findById(id)
@@ -20,9 +20,9 @@ class FilaController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async getQueueName (req, res) {
+  async getQueueName (req, res) {
     const { nome } = req.params
     try {
       const singleQueue = await filaRepository.getQueueByName(nome)
@@ -30,9 +30,9 @@ class FilaController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async deleteQueue (req, res) {
+  async deleteQueue (req, res) {
     const { id } = req.params
     try {
       const deleteQueue = await filaRepository.delete(id)
@@ -40,9 +40,9 @@ class FilaController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async updateQueue (req, res) {
+  async updateQueue (req, res) {
     const { id } = req.params
     const updatedInfos = req.body
     try {
@@ -51,9 +51,9 @@ class FilaController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async insertQueue (req, res) {
+  async insertQueue (req, res) {
     const newQueueInfo = req.body
 
     try {
@@ -64,5 +64,3 @@ class FilaController {
     }
   }
 }
-
-module.exports = FilaController

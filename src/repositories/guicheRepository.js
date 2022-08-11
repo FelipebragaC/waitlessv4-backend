@@ -1,5 +1,5 @@
 const { connection } = require('../config/db.js')
-const tableName = 'FSENHA'
+const tableName = 'CGUICHE'
 
 module.exports = {
 

@@ -1,12 +1,12 @@
 const { Router } = require('express')
-const ClienteController = require('../controllers/clienteController.js')
+const clienteController = require('../controllers/clienteController.js')
 
 const router = Router()
 
 router
-  .get('/cliente', ClienteController.getClients)
-  .post('/cliente', ClienteController.insertClient)
-  .put('/cliente/:id', ClienteController.updateClient)
-  .delete('/cliente/:id', ClienteController.deleteClient)
+  .get('/cliente', clienteController.getClients)
+  .post('/cliente', clienteController.insertClient)
+  .put('/cliente/:id', clienteController.updateClient)
+  .delete('/cliente/:id', clienteController.deleteClient)
 
 module.exports = router

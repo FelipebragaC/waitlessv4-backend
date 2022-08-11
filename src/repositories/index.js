@@ -1,12 +1,16 @@
-const FilaRepository = require('./filaRepository.js')
-const ClienteRepository = require('./clienteRepository.js')
-const SenhaRepository = require('./senhaRepository.js')
-const LoginRepository = require('./loginRepository.js')
+const filaRepository = require('./filaRepository.js')
+const clienteRepository = require('./clienteRepository.js')
+const senhaRepository = require('./senhaRepository.js')
+const loginRepository = require('./loginRepository.js')
+const guicheRepository = require('./guicheRepository.js')
+const painelRepository = require('./painelRepository.js')
 
 module.exports = {
-  FilaRepository,
-  ClienteRepository,
-  SenhaRepository,
-  LoginRepository
+  filaRepository,
+  clienteRepository,
+  senhaRepository,
+  loginRepository,
+  guicheRepository,
+  painelRepository
 
 }

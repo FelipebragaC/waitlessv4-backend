@@ -1,17 +1,18 @@
-const { LoginRepository } = require('../repositories')
-const loginRepository = new LoginRepository()
+
+const { loginRepository } = require('../repositories/index')
+
 const serviceLogin = require('../services/serviceLogin.js')
 require('dotenv').config({ path: ('src/env/token.env') })
 
-class LoginController {
-  static async getUsers (req, res) {
+module.exports = {
+  async getUsers (req, res) {
     try {
       const Users = await loginRepository.findAll()
       return res.status(200).json(Users)
     } catch (err) { res.status(500).json(err.message) }
-  }
+  },
 
-  static async getByEmail (req, res) {
+  async getByEmail (req, res) {
     const email = req.body.emailAddress
     try {
       const userEmail = await loginRepository.findByEmail(email)
@@ -19,17 +20,17 @@ class LoginController {
     } catch (error) {
       res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async insertUser (req, res) {
+  async insertUser (req, res) {
     const infos = req.body
     try {
       const newUser = serviceLogin.insertUser(infos)
       return res.status(200).json(newUser)
     } catch (err) { res.status(500).json(err.message) }
-  }
+  },
 
-  static async getSingleUser (req, res) {
+  async getSingleUser (req, res) {
     const { id } = req.params
     try {
       const singleUser = await loginRepository.findById(id)
@@ -37,9 +38,9 @@ class LoginController {
     } catch (error) {
       return res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async signIn (req, res) {
+  async signIn (req, res) {
     const { emailAddress, password } = req.body
 
     try {
@@ -48,9 +49,9 @@ class LoginController {
     } catch (error) {
       res.status(500).json(error.message)
     }
-  }
+  },
 
-  static async getUserName (req, res) {
+  async getUserName (req, res) {
     const { emailAddress } = req.params
     try {
       const singleUser = await loginRepository.findUser(emailAddress)
@@ -60,5 +61,3 @@ class LoginController {
     }
   }
 }
-
-module.exports = LoginController

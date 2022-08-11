@@ -4,16 +4,15 @@
   "description": "Nova versão waitless",
   "main": "src/main/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "jest",
+    "test:unit": "npm test -- --watch -c",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FelipebragaC/waitlessv4-backend.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/FelipebragaC/waitlessv4-backend.git",
+  "author": "Darlan Oliveira <feitt.c6@gmail.com>",
   "license": "ISC",
+  "private": true,
   "bugs": {
     "url": "https://github.com/FelipebragaC/waitlessv4-backend/issues"
   },
@@ -33,10 +32,12 @@
     "eslint": "^8.16.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.7.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
+    "jest": "28.1.3",
     "mocha": "10.0.0",
-    "nodemon": "2.0.16",
+    "nodemon": "^2.0.19",
     "standard": "^17.0.0"
   }
 }
